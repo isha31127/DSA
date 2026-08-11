@@ -10,8 +10,10 @@ public:
                 break;
             }
         }
-        while(find(nums.begin(),nums.end(),s) != nums.end())
+        unordered_set<int> st(nums.begin(), nums.end());
+        while(st.count(s)) {
             s++;
+        }
         return s;
     }
 };
