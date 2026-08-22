@@ -1,15 +1,17 @@
 class Solution {
 public:
     bool checkDivisibility(int n) {
-        string s = to_string(n);
         int sum = 0;
         int prod = 1;
-        for(int i = 0; i < s.length(); i++){
-            sum += (s[i] - '0');
-            prod *= (s[i] - '0');
+        int temp = n;
+        while(n != 0){
+            int r = n % 10;
+            sum += r;
+            prod *= r;
+            n /= 10;
         }
         int d = sum + prod;
-        if(n % d == 0) return true;
+        if(temp % d == 0) return true;
         return false;
     }
 };
