@@ -1,13 +1,13 @@
 class Solution {
 public:
     long long countCommas(long long n) {
-        long long ans = 0;
-        if(n < 1000)return 0;
-        if(n >= 1000) ans += (n-999);
-        if(n >= 1000000) ans += (n-999999);
-        if(n >= 1000000000l) ans += (n-999999999l);
-        if(n >= 1000000000000l) ans+= (n -999999999999l);
-        if(n >= 1000000000000000l) ans+= (n- 999999999999999l);
-        return ans;
+        if(n <= 999) return 0;
+        long long c = 0;
+        long long s = 1000;
+        while(s <= n){
+            c += n - s + 1;
+            s *= 1000;
+        }
+        return c;
     }
 };
